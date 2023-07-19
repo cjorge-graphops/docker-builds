@@ -20,7 +20,7 @@
 
     "regexManagers": [
       {
-        "fileMatch": ["^dockerfiles/*/Dockerfile$"],
+        "fileMatch": ["^dockerfiles/.*/Dockerfile$"],
         "matchStrings": [
             ".*renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sARG .*?_VERSION=(?<currentValue>.*)\\s"
         ],

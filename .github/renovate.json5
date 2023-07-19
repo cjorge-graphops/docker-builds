@@ -31,5 +31,18 @@
     // docker:pinDigests preset, this allows for reproducible builds
     "docker": {
       "pinDigests": true
-    }
+    },
+
+    "packageRules": [
+      // Group dependency update PRs per namespace
+      {
+        "description": "Group dependencies",
+        "matchPaths": ["dockerfiles/**"],
+        "groupName": '{{{parentDir}}}',
+        "groupSlug": '{{{parentDir}}}',
+        "semanticCommitType": "ci",
+        "prTitle": 'ci(deps): update {{{parentDir}}} dependencies',
+        "commitMessageAction": "update",
+        "commitMessageExtra": "dependencies"
+      }
 }

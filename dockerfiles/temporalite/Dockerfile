@@ -8,7 +8,7 @@ RUN apk add --no-cache git && \
     cd temporalite && \
     go build -o ${GOPATH:-/go}/bin/ ./cmd/temporalite
 
-FROM alpine:3.16
+FROM alpine:3.18@sha256:82d1e9d7ed48a7523bdebc18cf6290bdb97b82302a8a9c27d4fe885949ea94d1
 WORKDIR /
 
 COPY --from=0 ${GOPATH:-/go}/bin/temporalite /

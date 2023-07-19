@@ -19,13 +19,13 @@
     "enabledManagers": ["regex", "dockerfile"],
 
     "regexManagers": [
-        {
-        "fileMatch": ["^Dockerfile$"],
+      {
+        "fileMatch": ["^dockerfiles/*/Dockerfile$"],
         "matchStrings": [
             "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sARG .*?_VERSION=(?<currentValue>.*)\\s"
         ],
         "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
-        }
+      }
     ],
 
     // docker:pinDigests preset, this allows for reproducible builds

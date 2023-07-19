@@ -38,12 +38,15 @@
       {
         "description": "Group dependencies",
         "matchPaths": ["dockerfiles/**"],
-        "groupName": '{{{parentDir}}}',
-        "groupSlug": '{{{parentDir}}}',
+        "groupName": '{{{replace "dockerfiles/(.*)/.*" "$1" packageFileDir}}}',
+        "groupSlug": '{{{replace "dockerfiles/(.*)/.*" "$1" packageFileDir}}}',
         "semanticCommitType": "ci",
-        "prTitle": 'ci(deps): update {{{parentDir}}} dependencies',
+        "prTitle": 'ci(deps): update {{{replace "dockerfiles/(.*)/.*" "$1" packageFileDir}}} dependencies',
+        "commitMessagePrefix": "ci(deps):",
         "commitMessageAction": "update",
-        "commitMessageExtra": "dependencies"
+        "commitMessageExtra": "dependencies",
+        "commitMessageTopic": '{{{replace "dockerfiles/(.*)/.*" "$1" packageFileDir}}}',
+        "branchName": 'renovate/{{{replace "dockerfiles/(.*)/.*" "$1" packageFileDir}}}'
       }
     ]
 }
